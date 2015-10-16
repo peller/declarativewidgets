@@ -311,6 +311,7 @@ The chart accepts data via attribute `datarows` and column headers via attribute
                     this._setSelection([]);
 
                     this.chart[modelProp].dispatch.on('elementClick', function(e) {
+                          this.$$('.hover').classList.add('urth-viz-chart'); // workaround for polyfill problem with styling
                           this.$$('.hover').classList.toggle('selected');
                           this._setSelection(d3.select(this.shadowRoot).selectAll('.nvd3 .selected').data());
                     }.bind(this));
@@ -323,6 +324,7 @@ The chart accepts data via attribute `datarows` and column headers via attribute
         _fireWhenReady: function() {
             if (this.chart && this.datarows && this.columns) {
                 this.chart.dispatch.on('renderEnd.urth', function() {
+                    this._svgSelection(d3).selectAll("*").classed('urth-viz-chart', true); // workaround for polyfill problem with styling
                     this.rendered = true;
                     this.fire('urth-viz-chart-render');
                 }.bind(this));
