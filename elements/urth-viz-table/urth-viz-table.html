@@ -21,8 +21,10 @@ The table accepts data via attribute `datarows` and column headers via attribute
 -->
 <dom-module id="urth-viz-table">
     <link rel="import" type="css" href="../handsontable/dist/handsontable.full.css">
+    <link rel="import" type="css" href="handsontable-shadow.css">
     <template>
         <style>
+            ::shadow .handsontable td,
             .handsontable td {
                 white-space: normal;
             }

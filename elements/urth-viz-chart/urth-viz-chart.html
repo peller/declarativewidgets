@@ -26,8 +26,10 @@ The chart accepts data via attribute `datarows` and column headers via attribute
 -->
 <dom-module id="urth-viz-chart">
     <link rel="import" type="css" href="../nvd3/build/nv.d3.css">
+    <link rel="import" type="css" href="nvd3-shadow.css">
     <template>
         <style>
+            ::shadow .selected,
             .selected { fill: yellow !important; }
         </style>
         <div id="settings-section">
