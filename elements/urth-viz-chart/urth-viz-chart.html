@@ -30,7 +30,6 @@ The chart accepts data via attribute `datarows` and column headers via attribute
     <link rel="import" type="css" href="../nvd3/build/nv.d3.css">
 
     <template>
-        <link rel="stylesheet" type="text/css" href="../nvd3/build/nv.d3.css">
         <style>
         #chart1 .selected { fill: yellow !important; }
         </style>
@@ -191,6 +190,7 @@ The chart accepts data via attribute `datarows` and column headers via attribute
 
         // for elements which include VizChartCommonBehavior for containment, propagate render event
         ready: function() {
+            this.scopeSubtree(this.$.chart1, true);
             if (this.is != 'urth-viz-chart') {
                 this.$.chart.addEventListener('urth-viz-chart-render', this.fire.bind(this, 'urth-viz-render'));
             }

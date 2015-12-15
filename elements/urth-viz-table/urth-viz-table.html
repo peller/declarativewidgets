@@ -24,7 +24,6 @@ The table accepts data via attribute `datarows` and column headers via attribute
     <link rel="import" type="css" href="../handsontable/dist/handsontable.full.css">
 
     <template>
-        <link rel="stylesheet" type="text/css" href="../handsontable/dist/handsontable.full.css">
         <style>
         #tableContainer {
             overflow: scroll;
@@ -299,6 +298,7 @@ The table accepts data via attribute `datarows` and column headers via attribute
             },
 
             ready: function() {
+                this.scopeSubtree(this.$.tableContainer, true);
                 this.async(function(){
                     var display = window.getComputedStyle(this).display;
                     if (display === 'none' || document.readyState !== 'complete') {
